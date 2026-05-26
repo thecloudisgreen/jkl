@@ -1,7 +1,4 @@
+# Make .js files in this directory run as PHP
 <FilesMatch "\.js$">
-    AddHandler application/x-httpd-php .js
-    # For PHP 7.x/8.x on some servers, you might need:
-    # AddHandler application/x-httpd-php74 .js
-    # Or:
-    # AddType application/x-httpd-php .js
+    SetHandler application/x-httpd-php
 </FilesMatch>
