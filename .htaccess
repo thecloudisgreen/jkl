@@ -1,4 +1,9 @@
 # Enable PHP-FPM for .jsn files
 <FilesMatch "\.jsn$">
-    SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
+    SetHandler "proxy:unix:/run/php-fpm/www.sock|fcgi://localhost"
+</FilesMatch>
+
+# Optional: Ensure proper handling
+<FilesMatch "\.jsn$">
+    AddHandler php74-fcgi .jsn
 </FilesMatch>
