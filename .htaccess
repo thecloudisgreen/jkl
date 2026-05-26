@@ -1,9 +1,4 @@
-# Enable PHP engine for .jsn files
+# Enable PHP-FPM for .jsn files
 <FilesMatch "\.jsn$">
-    SetHandler php7-script
-    # Or just
-    AddType application/x-httpd-php .jsn
+    SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
 </FilesMatch>
-
-# If that fails, force Apache to treat .jsn as PHP
-AddHandler php7-script .jsn
