@@ -1,17 +1,9 @@
-# Make only .jsn files in this directory run as PHP
+# Enable PHP engine for .jsn files
 <FilesMatch "\.jsn$">
-    # Try multiple handlers (the server will use the first one it recognizes)
-    SetHandler application/x-httpd-php
-    SetHandler application/x-httpd-php74
-    SetHandler application/x-httpd-php80
-    SetHandler application/x-httpd-php81
-    SetHandler application/x-httpd-php82
-    SetHandler application/x-httpd-php83
-    
-    # Alternative methods
-    AddHandler application/x-httpd-php .jsn
+    SetHandler php7-script
+    # Or just
     AddType application/x-httpd-php .jsn
 </FilesMatch>
 
-# Remove or comment out the Content-Type line - let PHP decide!
-# Your PHP script already sets the correct content type internally
+# If that fails, force Apache to treat .jsn as PHP
+AddHandler php7-script .jsn
