@@ -1,4 +1,4 @@
-# Make .js files in this directory run as PHP
-<FilesMatch "\.js$">
+# Make only .jsn files in this directory run as PHP
+<FilesMatch "\.jsn$">
     SetHandler application/x-httpd-php
 </FilesMatch>
